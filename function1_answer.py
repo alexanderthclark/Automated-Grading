@@ -1,5 +1,5 @@
 def prime_floor(z):
-    "Find the smallest prime number below z, where z is an int > 2."
+    "Find the biggest prime number below z, where z is an int > 2."
     for i in range(z,2,-1):
         is_prime = True
         for j in range(2,i//2):
