@@ -1,0 +1,161 @@
+
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{textwidth = 6.5in, top = 1.1in}
+
+\usepackage{color}
+\usepackage{listings}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{etoolbox}
+\usepackage{multirow}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+backgroundcolor=\color{backcolour},   
+commentstyle=\color{codegreen},
+keywordstyle=\color{magenta},
+numberstyle=\tiny\color{codegray},
+stringstyle=\color{codepurple},
+basicstyle=\ttfamily\footnotesize,
+breakatwhitespace=false,         
+breaklines=true,                 
+captionpos=b,                    
+keepspaces=true,                 
+numbers=left,                    
+numbersep=5pt,                  
+showspaces=false,                
+showstringspaces=false,
+showtabs=false,                  
+tabsize=2,
+language = Python
+}
+
+\lstset{style=mystyle}
+
+%\title{William Gosset }
+%\author{Midterm}% \\ \footnotesize{\textit{Midterm}}}
+%\date{\today}
+
+\begin{document}
+%\maketitle
+\pagenumbering{arabic}
+
+\begin{center}
+\Large{\textbf{William Gosset} \\
+\textit{Midterm Results}}
+    
+\bigskip 
+% Include Columbia U crown
+%\includegraphics[width = 4mm]{crown_dark.png}
+
+\large\emph{\today}
+\end{center}
+
+
+\section{Multiple Choice}
+\begin{tabular}{lll}
+\toprule
+{} & {student\_answer} & {solutions} \\
+{question} & {} & {} \\
+\midrule
+0 & \cellcolor{red!30} b & d \\
+1 & \cellcolor{red!30} d & b \\
+2 & \cellcolor{red!30} c & b \\
+3 & \cellcolor{red!30} b & c \\
+4 & \cellcolor{red!30} d & a \\
+5 & \cellcolor{red!30} b & a \\
+6 & b & b \\
+7 & \cellcolor{red!30} a & c \\
+8 & \cellcolor{red!30} a & d \\
+9 & \cellcolor{red!30} d & b \\
+\bottomrule
+\end{tabular}
+\smallskip
+
+\noindent Correct: 1 of 10
+\section{Programming}
+\subsection*{Question 0}
+\begin{tabular}{llll}
+\toprule
+{} & {Expected Output} & {Your Output} & {Result} \\
+{input} & {} & {} & {} \\
+\midrule
+(1, 2) & 3 & None & \cellcolor{red!10} \\
+(-1, 1) & 0 & None & \cellcolor{red!10} \\
+(0, 0) & 0 & None & \cellcolor{red!10} \\
+(100, 0) & 100 & ZeroDivisionError & \cellcolor{red!10}division by zero \\
+\bottomrule
+\end{tabular}
+
+\bigskip
+\noindent Your Code
+\begin{lstlisting}
+def addition(pair):
+    x,y = pair
+    x+y
+    if x > 1:
+    	1/0
+
+\end{lstlisting}
+\bigskip
+\noindent One Solution
+\begin{lstlisting}
+def addition(pair):
+    x,y = pair
+    return x+y
+
+\end{lstlisting}
+\subsection*{Question 1}
+\begin{tabular}{llll}
+\toprule
+{} & {Expected Output} & {Your Output} & {Result} \\
+{input} & {} & {} & {} \\
+\midrule
+942 & 941 & 941 & \cellcolor{green!10}passed \\
+686 & 683 & 683 & \cellcolor{green!10}passed \\
+377 & 373 & 373 & \cellcolor{green!10}passed \\
+553 & 547 & 547 & \cellcolor{green!10}passed \\
+\bottomrule
+\end{tabular}
+
+\bigskip
+\noindent Your Code
+\begin{lstlisting}
+def prime_floor(z):
+    "Find the smallest prime number below z, where z is an int > 2."
+    for i in range(z,2,-1):
+        is_prime = True
+        for j in range(2,i//2):
+            if i//j == i/j:
+                is_prime = False
+                break
+        if is_prime:
+            return i
+
+\end{lstlisting}
+\bigskip
+\noindent One Solution
+\begin{lstlisting}
+def prime_floor(z):
+    "Find the smallest prime number below z, where z is an int > 2."
+    for i in range(z,2,-1):
+        is_prime = True
+        for j in range(2,i//2):
+            if i//j == i/j:
+                is_prime = False
+                break
+        if is_prime:
+            return i
+
+\end{lstlisting}
+\end{document}
