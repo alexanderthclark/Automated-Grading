@@ -23,7 +23,8 @@ id_list = ['alexanderthclark']
 grade_folder = 'folder_id_string'
 
 for key, uni in enumerate(id_list):    
-    # create folder
+    # create folder if it doesn't already exist
+    # if folder already exists, replace this with finding the folder under the parent folder
     student_folder = drive.CreateFile({'title': uni, 'parents':[ {'id': grade_folder}], 
                                        'mimeType': 'application/vnd.google-apps.folder'})
     student_folder.Upload()
