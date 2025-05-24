@@ -1,4 +1,6 @@
 def make_preamble(student_id):
+    """Return the LaTeX preamble for *student_id*'s report."""
+
     preamble = r"""
 \documentclass[11pt]{article}
 \usepackage{amsmath}

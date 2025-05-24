@@ -3,11 +3,14 @@ import pandas as pd
 import inspect
 import sys
 
-def highlight_wrong(s, solutions, props = ''):
+def highlight_wrong(s, solutions, props=''):
+    """Return props for elements in *s* that differ from *solutions*."""
     return np.where(s != solutions, props, '')
 
-def test_function(student, f, inputs, unpack = False):
-    
+def test_function(student, f, inputs, unpack=False):
+
+    """Return a LaTeX table comparing *student* to the reference function."""
+
     df = pd.DataFrame()
     df.index.name = 'input'
     
@@ -35,22 +38,24 @@ def test_function(student, f, inputs, unpack = False):
         
     return df.style.to_latex(hrules = True)
 
-def programming_output(temp, temp_answer, test_inputs, body): 
-	table_tex = test_function(temp, temp_answer, test_inputs)
-	body += table_tex
+def programming_output(temp, temp_answer, test_inputs, body):
+        """Append test results and code listings to a LaTeX *body* string."""
 
-	body += r"""
+        table_tex = test_function(temp, temp_answer, test_inputs)
+        body += table_tex
+
+        body += r"""
 \bigskip
 \noindent Your Code
 \begin{lstlisting}""" + """
 """ + inspect.getsource(temp) + """
 \end{lstlisting}"""
 
-	body += r"""
+        body += r"""
 \bigskip
 \noindent One Solution
 \begin{lstlisting}""" + """
 """ + inspect.getsource(temp_answer) + """
 \end{lstlisting}"""
 
-	return body
+        return body
